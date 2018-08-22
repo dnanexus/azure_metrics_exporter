@@ -167,7 +167,7 @@ func (ac *AzureClient) getMetricValue(metricNames string, target string) AzureMe
 	if metricNames != "" {
 		values.Add("metricnames", metricNames)
 	}
-	values.Add("aggregation", "Total,Average,Minimum,Maximum")
+	values.Add("aggregation", "Total")
 	values.Add("timespan", fmt.Sprintf("%s/%s", startTime, endTime))
 	values.Add("api-version", apiVersion)
 

@@ -1,5 +1,12 @@
 # Azure-metrics-exporter
 
+# About this Fork
+
+This fork was created to quickly achieve a few goals, based on a very specific need to query the total data storage metrics:
+
+1. Only request the "total" aggregation, since this is the only valid aggregation for storage metrics
+2. Change the time window to the past hour, since storage metrics are only updated hourly
+
 **Work in progress**
 
 Azure metrics exporter for [Prometheus.](https://prometheus.io)

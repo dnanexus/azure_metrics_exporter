@@ -76,29 +76,29 @@ func (c *Collector) Collect(ch chan<- prometheus.Metric) {
 				labels["resource_name"],
 			)
 
-			ch <- prometheus.MustNewConstMetric(
-				prometheus.NewDesc(metricName+"_average", "", labelNames, nil),
-				prometheus.GaugeValue,
-				metricValue.Average,
-				labels["resource_group"],
-				labels["resource_name"],
-			)
+			// ch <- prometheus.MustNewConstMetric(
+			// 	prometheus.NewDesc(metricName+"_average", "", labelNames, nil),
+			// 	prometheus.GaugeValue,
+			// 	metricValue.Average,
+			// 	labels["resource_group"],
+			// 	labels["resource_name"],
+			// )
 
-			ch <- prometheus.MustNewConstMetric(
-				prometheus.NewDesc(metricName+"_min", "", labelNames, nil),
-				prometheus.GaugeValue,
-				metricValue.Minimum,
-				labels["resource_group"],
-				labels["resource_name"],
-			)
+			// ch <- prometheus.MustNewConstMetric(
+			// 	prometheus.NewDesc(metricName+"_min", "", labelNames, nil),
+			// 	prometheus.GaugeValue,
+			// 	metricValue.Minimum,
+			// 	labels["resource_group"],
+			// 	labels["resource_name"],
+			// )
 
-			ch <- prometheus.MustNewConstMetric(
-				prometheus.NewDesc(metricName+"_max", "", labelNames, nil),
-				prometheus.GaugeValue,
-				metricValue.Maximum,
-				labels["resource_group"],
-				labels["resource_name"],
-			)
+			// ch <- prometheus.MustNewConstMetric(
+			// 	prometheus.NewDesc(metricName+"_max", "", labelNames, nil),
+			// 	prometheus.GaugeValue,
+			// 	metricValue.Maximum,
+			// 	labels["resource_group"],
+			// 	labels["resource_name"],
+			// )
 		}
 	}
 }
@@ -114,7 +114,7 @@ func handler(w http.ResponseWriter, r *http.Request) {
 func main() {
 	kingpin.HelpFlag.Short('h')
 	kingpin.Parse()
-	log.Printf("azure_metrics_exporter 2 is now listening on port %v", *listenAddress)
+	log.Printf("azure_metrics_exporter 3 is now listening on port %v", *listenAddress)
 	if err := sc.ReloadConfig(*configFile); err != nil {
 		log.Fatalf("Error loading config: %v", err)
 		os.Exit(1)
